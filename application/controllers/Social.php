@@ -125,8 +125,8 @@ class Social extends CI_Controller
                 'Google' => array(
                     'enabled' => true,
                     'keys' => array(
-                        'id' => '129208721145-71uajssbao7gmljme41nticsqutn57iv.apps.googleusercontent.com',
-                        'secret' => 'M8dh1xbaNQ2X7c0SNseWpEpb'
+                        'id' => '442982032381-udpcjs47iuhr144va1euvnfuvi9vje3o.apps.googleusercontent.com',
+                        'secret' => 'guI7188EB_2NtqmrMXZNQM2M'
                     ),
                     'scope' => 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
                 ),

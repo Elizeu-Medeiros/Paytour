@@ -16,7 +16,7 @@ class Login extends CI_Controller
 
 	public function index(){
 
-		/*$data = array(
+		$data = array(
             "styles" => array(),
             "empresa" => "Psi Pro",
             "pagina" => "Login",
@@ -30,7 +30,7 @@ class Login extends CI_Controller
 
         );
         $this->template2->show("login.php", $data);
-*/
+
 	}
 
 	//Remove todas as sessões e redireciona para tela de login
