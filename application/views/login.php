@@ -14,9 +14,6 @@
                                     <a href="<?= base_url("Social/auth/Google") ?>" class="btn btn-just-icon btn-simple">
                                         <i class="fa fa-google-plus"></i>
                                     </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-simple">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
                                 </div>
                             </div>
                             <p class="description text-center">ou conecte-se com</p>
@@ -26,19 +23,19 @@
                                     <span class="input-group-addon">
                                         <i class="material-icons">email</i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Email...">
+                                    <input type="text" class="form-control" placeholder="Email..." disabled>
                                 </div>
 
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">lock_outline</i>
                                     </span>
-                                    <input type="password" placeholder="Senha..." class="form-control" />
+                                    <input type="password" placeholder="Senha..." class="form-control" disabled/>
                                 </div>
 
                             </div>
                             <div class="footer text-center">
-                                <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Iniciar</a>
+                                <a href="#" class="btn btn-primary btn-simple btn-wd btn-lg">Iniciar</a>
                             </div>
                         </form>
                     </div>
