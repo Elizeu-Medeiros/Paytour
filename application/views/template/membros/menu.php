@@ -62,7 +62,7 @@
               
               <a class="dropdown-item" href="#">Convidar Amigos</a>
              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="<?= base_url("membro/Login/logoff") ?>">Sair</a>
+              <a class="dropdown-item" href="<?= base_url("logoff") ?>">Sair</a>
             </div>
           </li>
         </ul>
