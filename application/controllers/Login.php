@@ -18,7 +18,7 @@ class Login extends CI_Controller
 
 		$data = array(
             "styles" => array(),
-            "empresa" => "Psi Pro",
+            "empresa" => "Paytour",
             "pagina" => "Login",
             "logo" => base_url("assets/img/logo.jpg"),
             "menu" => "login",

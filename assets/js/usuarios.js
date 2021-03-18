@@ -53,7 +53,28 @@ $(document).ready(function () {
 		}
 	})
 
-	
+	//Carregar minhas conta
+	$.ajax({
+		type: "POST",
+		url: BASE_URL + "Usuarios/ajax_minha_conta",
+		dataType: "json",
+	//	data: { "user_id": $(this).attr("user_id") },
+		success: function (response) {
+			clearErrors();
+			$("#meu_perfil")[0].reset();
+			$.each(response["input"], function (id, value) {
+				$("#" + id).val(value);
+				if (value) {
+					$("#" + id).parent().addClass("is-filled");
+				}
+			});
+			$("#sexo").selectpicker("refresh");
+
+			$("#foto").attr("src", response.img.foto);
+			//$("#modal_user").modal();
+		}
+	})
+
 
 
 	$("#btn_upload_usuario_photo").change(function () {
@@ -217,7 +238,7 @@ $(document).ready(function () {
 	$("#meu_perfil").submit(function () {
 		$.ajax({
 			type: "POST",
-			url: BASE_URL + "membro/Usuarios/ajax_save_minha_conta",
+			url: BASE_URL + "Usuarios/ajax_save_minha_conta",
 			dataType: "json",
 			data: $(this).serialize(),
 			beforeSend: function () {

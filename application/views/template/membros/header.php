@@ -15,7 +15,7 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() ?>assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/icons/cropped-favicon-192x192.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         <?= $empresa . " - " . $title ?>
@@ -93,7 +93,7 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="collapse" id="collapseExample">
                             <ul class="nav">
                                 <li class="nav-item  <?= ($menu == "person") ? 'active' : '' ?>">
-                                    <a class=" nav-link" href="<?= base_url("membro/meuperfil") ?>">
+                                    <a class=" nav-link" href="<?= base_url("meuperfil") ?>">
                                         <span class="sidebar-mini"> MP </span>
                                         <span class="sidebar-normal"> Meu Perfil </span>
                                     </a>
@@ -107,7 +107,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url("membro/logoff") ?>">
+                                    <a class="nav-link" href="<?= base_url("logoff") ?>">
                                         <span class="sidebar-mini"> S </span>
                                         <span class="sidebar-normal"> Sair </span>
                                     </a>
@@ -119,7 +119,7 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
                 <ul class="nav">
                     <li class="nav-item  <?= ($menu == "dashboard") ? 'active' : '' ?>">
-                        <a class="nav-link" href="<?= base_url('membro') ?>">
+                        <a class="nav-link" href="<?= base_url('dashboard') ?>">
                             <i class="material-icons">dashboard</i>
                             <p>Painel de Controle</p>
                         </a>

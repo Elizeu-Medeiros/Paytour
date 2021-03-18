@@ -44,38 +44,29 @@ class Restrito extends CI_Controller
 
 	public function meuPerfil()
 	{
-
 		$usuario = $this->session->userdata('usuario')[0];
 
 		$this->load->model('EstadoCivil_model', 'estadoCivil');
 		$this->load->model('TipoUsuario_model', 'tpUsuario');
 		$this->load->model('Usuarios_model', 'usuarios');
-		$this->load->model('Experiencias_model', 'exp');
-		$this->load->model('CategoriaExperiencias_model', 'catExp');
-		$this->load->model('ExperienciaCategoriaSub_model', 'expCatSub');
 
 		$estadoCivil = $this->estadoCivil->listar_estado_civl();
 		$tipo_usuario = $this->tpUsuario->listar_tipo_usuario();
 		$minhaConta = $this->usuarios->minhaConta();
-		$exp = $this->exp->listExperiencias();
-		$catExp = $this->catExp->listCategoriaExperiencias();
-		$expCatSub = $this->expCatSub->listCategoriaExperienciaSub();
 
 		$data = array(
 			"styles" => array(),
-			"empresa" => "Psi Pro",
+			"empresa" => "Paytour",
 			"title" => "Perfil de Usuário",
 			"descricao" => "Perfil do usuário...",
 			"pagina" => "Meu Perfil",
-			"logo" => base_url("assets/img/logo.jpg"),
+			"logo" => base_url("assets/images/logo.png"),
+			"logo2" => base_url("assets/images/paytour.png"),
 			"menu" => "person",
 			"estadoCivil" => $estadoCivil,
 			"tipo_usuario" => $tipo_usuario,
 			"minhaConta" => $minhaConta,
 			"usuario" => $usuario,
-			"exp" => $exp,
-			"catExp" => $catExp,
-			"expCatSub" => $expCatSub,
 			"scripts" => array(
 				"plugins/jquery.mask.min.js",
 				"upload-img.js",

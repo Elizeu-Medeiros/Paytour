@@ -52,7 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'Restrito';
 
+$route['dashboard'] = 'Restrito';
 $route['curriculum'] = 'Restrito/curriculum';
+$route['meuperfil'] = 'Restrito/meuPerfil';
 $route['logoff'] = 'Login/logoff';
 $route['login'] = 'Login';
 
