@@ -67,36 +67,29 @@ class Usuarios extends CI_Controller
 
 		$minhaConta = $this->usuarios->minhaConta()[0];
 		
-        $json["input"]["nome"] = $minhaConta->pes_nome;
+		$json["input"]["pk_pessoa"] = $minhaConta->pk_pessoa;
+		$json["input"]["pk_endereco"] = $minhaConta->pk_endereco;
+		$json["input"]["nome"] = $minhaConta->usu_nome;
 		$json["input"]["login"] = $minhaConta->usu_login;
 		$json["input"]["telefone"] = $minhaConta->usu_telefone;
 		$json["input"]["celular"] = $minhaConta->usu_celular;
 		$json["input"]["email"] = $minhaConta->usu_email;
-		$json["input"]["photoURL"] = $minhaConta->pes_nome;
+		$json["input"]["photoURL"] = $minhaConta->photoURL;
 		$json["input"]["data_nasc"] = $minhaConta->usu_data_nascimento;
-        $json["input"]["pk_pessoa"] = $minhaConta->pk_pessoa;
+	
 		$json["input"]["nome_completo"] = $minhaConta->pes_nome;
 		$json["input"]["sexo"] = $minhaConta->sexo;
 		$json["input"]["cpf"] = $minhaConta->cpf;
-        $json["input"]["pk_endereco"] = $minhaConta->pk_endereco;
-		$json["input"]["fk_logradouro"] = $minhaConta->fk_logradouro;
-		$json["input"]["end_uf"] = $minhaConta->pes_nome;
-		$json["input"]["end_cidade"] = $minhaConta->pes_nome;
-		$json["input"]["end_bairro"] = $minhaConta->pes_nome;
-		$json["input"]["end_cep"] = $minhaConta->pes_nome;
-		$json["input"]["end_logradouro"] = $minhaConta->pes_nome;
-		$json["input"]["end_numero"] = $minhaConta->pes_nome;
-		$json["input"]["end_complemento"] = $minhaConta->pes_nome;
-		$json["input"]["end_referencia"] = $minhaConta->pes_nome;
-        $json["input"]["CEP"] = $minhaConta->end_cep;
-		$json["input"]["id_logradouro"] = $minhaConta->pes_nome;
-		$json["input"]["endereco"] = $minhaConta->endereco;
-		$json["input"]["id_cidade"] = $minhaConta->pes_nome;
-		$json["input"]["UF"] = $minhaConta->end_uf;
-		$json["input"]["complemento"] = $minhaConta->pes_nome;
-		$json["input"]["descricao_sem_numero"] = $minhaConta->pes_nome;
-        $json["input"]["cidade"] = $minhaConta->descricao_cidade;
-		$json["input"]["bairro"] = $minhaConta->descricao_bairro;
+		$json["input"]["estado_civil"] = $minhaConta->fk_estado_civil;
+	
+		$json["input"]["uf"] = $minhaConta->end_uf;
+		$json["input"]["cidade"] = $minhaConta->end_cidade;
+		$json["input"]["bairro"] = $minhaConta->end_bairro;
+		$json["input"]["cep"] = $minhaConta->end_cep;
+		$json["input"]["logradouro_id"] = $minhaConta->fk_logradouro;
+		$json["input"]["endereco"] = $minhaConta->end_logradouro;
+		$json["input"]["numero"] = $minhaConta->end_numero;
+		$json["input"]["complemento"] = $minhaConta->end_complemento;
 
         echo json_encode($json);
     }
@@ -201,6 +194,11 @@ class Usuarios extends CI_Controller
 
 		if (empty($data["cpf"])) {
 			$json["error_list"]["#cpf"] = "Cpf é obrigatório!";
+		}else{
+			$this->load->helper('validar');
+			if(!validaCPF($data["cpf"])){
+				$json["error_list"]["#cpf"] = "Cpf inválido!";
+			}
 		}
 
 		if (empty($data["email"])) {

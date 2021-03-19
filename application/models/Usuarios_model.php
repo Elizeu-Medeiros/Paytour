@@ -152,7 +152,7 @@ class Usuarios_model extends CI_Model
   {
     $this->db->select('u.pk_usuario, u.usu_login, u.usu_nome, u.usu_sexo, u.usu_endereco, u.usu_telefone, u.usu_celular, u.usu_email
                       , u.usu_estahativo, u.photoURL, DATE_FORMAT(u.usu_data_nascimento, "%d/%m/%Y") usu_data_nascimento, u.usu_dataadmissao
-                      , p.pk_pessoa, p.pes_nome, p.sexo, p.cpf  
+                      , p.pk_pessoa, p.pes_nome, p.sexo, p.cpf, p.fk_estado_civil  
                       , e.pk_endereco, e.fk_logradouro, e.end_uf, e.end_cidade, e.end_bairro, e.end_cep, e.end_logradouro, e.end_numero, e.end_complemento, e.end_referencia
                       , l.CEP, id_logradouro, l.tipo, l.descricao endereco, l.id_cidade, l.UF, l.complemento, l.descricao_sem_numero
                       , l.descricao_cidade, l.codigo_cidade_ibge, l.descricao_bairro')

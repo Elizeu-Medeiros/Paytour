@@ -72,6 +72,7 @@ class Pessoa_model extends CI_Model
       ->set('fk_usuario', $dados['pk_usuario'])
       ->set('sexo', $dados['sexo'])
       ->set('cpf', $dados['cpf'])
+      ->set('fk_estado_civil', $dados['estado_civil'])
       ->insert('pessoa');
 
     return $this->db->insert_id();
@@ -80,10 +81,12 @@ class Pessoa_model extends CI_Model
 
   public function updatePessoa($data)
   {
+    
     $this->db->set('pes_nome', strtoupper($data["nome_completo"]))
       ->where('pk_pessoa', $data["pk_pessoa"])
-      ->where('sexo', $data["sexo"])
+      ->where('sexo',  strtoupper($data["sexo"]))
       ->where('cpf', $data["cpf"])
+      ->where('fk_estado_civil', $data["estado_civil"])
       ->update('pessoa');
 
     return $this->db->affected_rows();

@@ -98,7 +98,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">CPF</label>
-                                            <input type="text" name="cpf" id="cpf" class="form-control" value="<?= @$minhaConta[0]->usu_nome ?>">
+                                            <input type="text" name="cpf" id="cpf" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -110,7 +110,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Telefone</label>
-                                            <input type="text" name="telefone" id="telefone" class="form-control" value="<?= @$minhaConta[0]->usu_telefone ?>">
+                                            <input type="text" name="telefone" id="telefone" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Celular</label>
-                                            <input type="text" name="celular" id="celular" class="form-control" value="<?= @$minhaConta[0]->usu_celular ?>">
+                                            <input type="text" name="celular" id="celular" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -166,8 +166,8 @@
                                     <div class="col-md-3">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Cidade</label>
-                                            <input type="text" name="cidade" id="cidade" class="form-control" value="<?= @$minhaConta[0]->end_cidade ?>" readonly="readonly">
-                                            <input type="hidden" name="cidade_id" id="cidade_id" value="<?= @$minhaConta[0]->id_cidade ?>">
+                                            <input type="text" name="cidade" id="cidade" class="form-control"  readonly="readonly">
+                                            <input type="hidden" name="cidade_id" id="cidade_id" >
 
                                             <span class="help-block"></span>
                                         </div>
@@ -176,7 +176,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">CEP</label>
-                                            <input type="text" name="cep" id="cep" class="form-control" value="<?= @$minhaConta[0]->end_cep ?>" readonly="readonly">
+                                            <input type="text" name="cep" id="cep" class="form-control"  readonly="readonly">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Bairro</label>
-                                            <input type="text" name="bairro" id="bairro" class="form-control" value="<?= @$minhaConta[0]->end_bairro ?>">
+                                            <input type="text" name="bairro" id="bairro" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -195,8 +195,8 @@
                                     <div class="col-md-10">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Endereço</label>
-                                            <input type="text" name="endereco" id="endereco" class="form-control" value="<?= @$minhaConta[0]->end_logradouro ?>">
-                                            <input type="hidden" name="logradouro_id" id="logradouro_id" class="form-control" value="<?= @$minhaConta[0]->id_logradouro ?>">
+                                            <input type="text" name="endereco" id="endereco" class="form-control" >
+                                            <input type="hidden" name="logradouro_id" id="logradouro_id" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Número</label>
-                                            <input type="text" name="numero" id="numero" class="form-control" value="<?= @$minhaConta[0]->end_numero ?>">
+                                            <input type="text" name="numero" id="numero" class="form-control" >
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -213,7 +213,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-floating">Complemento</label>
-                                            <input type="text" name="complemento" id="complemento" class="form-control" value="<?= @$minhaConta[0]->end_complemento ?>">
+                                            <input type="text" name="complemento" id="complemento" class="form-control" >
                                         </div>
                                     </div>
 

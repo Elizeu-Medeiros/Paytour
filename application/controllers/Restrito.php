@@ -9,10 +9,10 @@ class Restrito extends CI_Controller
 		//Load URL helper
 		$this->load->helper('url');
 
-		//$this->load->library("session");
-		//if (!$this->session->userdata("usuario")) {
-		//	redirect("logoff");
-		//}
+		$this->load->library("session");
+		if (!$this->session->userdata("usuario")) {
+			redirect("logoff");
+		}
 
 		$this->load->library("tema");
 		date_default_timezone_set('America/Sao_Paulo');
