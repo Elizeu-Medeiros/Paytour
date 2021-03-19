@@ -182,7 +182,7 @@ class Usuarios extends CI_Controller
 		$json["error_list"] = array();
 
 		$data = $this->input->post();
-		$data["pk_usuario"] = $this->session->userdata("usuario")[0]->pk_usuario;
+		$data["pk_usuario"] = $this->session->userdata("usuario")[0]->pk_usuario;//id  do usuário na sessão
 
 		if (empty($data["nome"])) {
 			$json["error_list"]["#nome"] = "Nome é obrigatório!";
@@ -217,7 +217,8 @@ class Usuarios extends CI_Controller
 			}
 
 			if (empty($data["pk_pessoa"])) {
-				$json["pk_pessoa"] = $this->pessoa->insertPessoa($data);
+				$data["pk_pessoa"] = $this->pessoa->insertPessoa($data);
+				$json["pk_pessoa"] = $data["pk_pessoa"];
 				$json["status"] = 1;
 			} else {
 				$this->pessoa->updatePessoa($data);
