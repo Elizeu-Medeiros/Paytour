@@ -59,6 +59,17 @@ The above copyright notice and this permission notice shall be included in all c
         .modal-full .modal-content {
             min-height: 100vh;
         }
+
+        .hint {
+            position: absolute;
+            left: 5px;
+            right: auto;
+            bottom: 0px;
+            font-size: 14px;
+            line-height: 14px;
+            transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+            color: grey;
+        }
     </style>
 </head>
 
@@ -74,7 +85,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <img src="<?= $logo ?>" width="20">
                 </a>
                 <a href="<?= base_url("restrito") ?>" class="simple-text logo-normal">
-                <img src="<?= $logo2 ?>" width="80">
+                    <img src="<?= $logo2 ?>" width="80">
                 </a>
             </div>
 
@@ -98,14 +109,14 @@ The above copyright notice and this permission notice shall be included in all c
                                         <span class="sidebar-normal"> Meu Perfil </span>
                                     </a>
                                 </li>
-                    
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
                                         <span class="sidebar-mini"> CA </span>
                                         <span class="sidebar-normal"> Convidar Amigos </span>
                                     </a>
                                 </li>
-                                
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url("logoff") ?>">
                                         <span class="sidebar-mini"> S </span>
@@ -128,10 +139,9 @@ The above copyright notice and this permission notice shall be included in all c
                     <li class="nav-item <?= ($menu == "library_books") ? 'active' : '' ?>">
                         <a class="nav-link" href="<?= base_url('curriculum') ?>">
                             <i class="material-icons">library_books</i>
-                            <p>Curriculum</p>
+                            <p>Meu Curriculum</p>
                         </a>
                     </li>
-
 
                 </ul>
             </div>

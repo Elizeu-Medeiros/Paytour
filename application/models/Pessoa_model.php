@@ -12,6 +12,15 @@ class Pessoa_model extends CI_Model
     date_default_timezone_set('America/Sao_Paulo');
   }
 
+  public function selectCurriculum( $id )
+  {
+
+    $this->db->from("pessoa");
+    $this->db->where('pk_pessoa', $id);
+
+    return $this->db->get()->result();
+  }
+
   public function is_duplicated($field, $value, $id = null)
   {
     if (!empty($id)) {
@@ -33,9 +42,18 @@ class Pessoa_model extends CI_Model
     $this->db->select('u.pk_pessoa,  u.nome, u.data_nascimento, u.email, u.celular, u.foto, u.status, u.senha
                       , u.data_atualizacao, u.data_cadastro, tu.pk_tipo_usuario, tu.tipo')
       ->from('pessoa')
-      // ->join('nivel_acesso na', 'na.fk_usuario = u.pk_pessoa', 'left')
       ->join('tipo_usuario tu', 'tu.pk_tipo_usuario = u.fk_tipo_usuario', 'left')
       ->where('u.pk_pessoa', $id);
+
+    return $this->db->get()->result()[0];
+  }
+
+  public function pessoaSession()
+  {
+    $this->db->select('p.pk_pessoa, p.pes_nome, u.usu_email, u.usu_telefone, p.cargo, p.escolaridade, p.obs, p.curriculum')
+      ->from('pessoa p')
+      ->join('usuarios u', 'u.pk_usuario = p.fk_usuario', 'left')
+      ->where('u.pk_usuario', $this->session->userdata("usuario")[0]->pk_usuario);
 
     return $this->db->get()->result()[0];
   }
@@ -78,17 +96,71 @@ class Pessoa_model extends CI_Model
     return $this->db->insert_id();
   }
 
+  public function insertCurriculum($dados)
+  {
+    $this->db->set('curriculum', $dados['curriculum'])
+      ->set('fk_usuario', $dados['pk_usuario'])
+      ->insert('pessoa');
+
+    return $this->db->insert_id();
+  }
+  
+  public function insertPessoaDados($dados)
+  {
+    $this->db->set('pes_nome', strtoupper($dados['nome_completo']))
+      ->set('fk_usuario', $dados['pk_usuario'])
+      ->set('cargo', strtoupper($dados["cargo"]))
+      ->set('escolaridade', strtoupper($dados["escolaridade"]))
+      ->set('obs', strtoupper($dados["obs"]))
+      ->insert('pessoa');
+
+    return $this->db->insert_id();
+  }
+
 
   public function updatePessoa($data)
   {
-    
     $this->db->set('pes_nome', strtoupper($data["nome_completo"]))
+      ->set('sexo',  strtoupper($data["sexo"]))
+      ->set('cpf', $data["cpf"])
+      ->set('fk_estado_civil', $data["estado_civil"])
       ->where('pk_pessoa', $data["pk_pessoa"])
-      ->where('sexo',  strtoupper($data["sexo"]))
-      ->where('cpf', $data["cpf"])
-      ->where('fk_estado_civil', $data["estado_civil"])
       ->update('pessoa');
 
     return $this->db->affected_rows();
   }
+
+  public function updatePessoaDados($data)
+  {
+
+    $this->db->set('pes_nome', strtoupper($data["nome_completo"]))
+      ->set('cargo', strtoupper($data["cargo"]))
+      ->set('escolaridade', strtoupper($data["escolaridade"]))
+      ->set('obs', strtoupper($data["obs"]))
+      ->where('pk_pessoa', $data["pk_pessoa"])
+      ->update('pessoa'); 
+
+    return $this->db->affected_rows();
+  }
+
+  public function updateCurriculum($data)
+  {
+
+    $this->db->set('curriculum', $data["curriculum"])
+      ->where('pk_pessoa', $data["pk_pessoa"])
+      ->update('pessoa');
+      
+    return $this->db->affected_rows();
+  }
+
+  public function apagarCurriculum($id)
+  {
+
+    $this->db->set('curriculum', '')
+      ->where('pk_pessoa', $id)
+      ->update('pessoa');
+      
+    return $this->db->affected_rows();
+  }
+
 }

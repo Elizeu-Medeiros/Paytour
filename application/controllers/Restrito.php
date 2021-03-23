@@ -12,6 +12,8 @@ class Restrito extends CI_Controller
 		$this->load->library("session");
 		if (!$this->session->userdata("usuario")) {
 			redirect("logoff");
+		} else {
+			$this->usuario = $this->session->userdata('usuario')[0];
 		}
 
 		$this->load->library("tema");
@@ -20,7 +22,6 @@ class Restrito extends CI_Controller
 
 	public function index()
 	{
-		$usuario = $this->session->userdata('usuario')[0];
 
 		$data = array(
 			"styles" => array(),
@@ -31,7 +32,7 @@ class Restrito extends CI_Controller
 			"logo" => base_url("assets/images/logo.png"),
 			"logo2" => base_url("assets/images/paytour.png"),
 			"menu" => "dashboard",
-			"usuario" => $usuario,
+			"usuario" => $this->usuario,
 			//  "style" => array("assets-for-demo/vertical-nav.css"),
 			"scripts" => array(),
 
@@ -44,7 +45,6 @@ class Restrito extends CI_Controller
 
 	public function meuPerfil()
 	{
-		$usuario = $this->session->userdata('usuario')[0];
 
 		$this->load->model('EstadoCivil_model', 'estadoCivil');
 		$this->load->model('TipoUsuario_model', 'tpUsuario');
@@ -66,7 +66,7 @@ class Restrito extends CI_Controller
 			"estadoCivil" => $estadoCivil,
 			"tipo_usuario" => $tipo_usuario,
 			"minhaConta" => $minhaConta,
-			"usuario" => $usuario,
+			"usuario" => $this->usuario,
 			"scripts" => array(
 				"plugins/jquery.mask.min.js",
 				"upload-img.js",
@@ -84,19 +84,20 @@ class Restrito extends CI_Controller
 
 		$data = array(
 			"styles" => array(),
-			"empresa" => "Psi Pro",
-			"title" => "Perfil de Usuário",
-			"descricao" => "Perfil do usuário...",
-			"pagina" => "Meu Perfil",
-			"logo" => base_url("assets/img/logo.jpg"),
-			"menu" => "person",
-		
+			"empresa" => "Paytour",
+			"title" => "Curriculum",
+			"descricao" => "Cadastro de curriculum",
+			"pagina" => "Meu curriculum",
+			"logo" => base_url("assets/images/logo.png"),
+			"logo2" => base_url("assets/images/paytour.png"),
+			"menu" => "library_books",
+			"usuario" => $this->usuario,
 			"scripts" => array(
 				"plugins/jquery.mask.min.js",
 				"upload-img.js",
 				"util.js",
 				"autocomplete.js",
-				"usuarios.js"
+				"curriculum.js"
 			),
 		);
 
@@ -107,11 +108,6 @@ class Restrito extends CI_Controller
 	//Usuário logado edita sua conta
 	public function minhaConta()
 	{
-		$this->load->model('Usuarios_model', 'usuarios');
-
-		$usuario = $this->session->userdata('usuario')[0];
-
-		$minhaConta = $this->usuarios->minhaConta();
 		$data = array(
 			"styles" => array(),
 			"empresa" => "Psi Pro",
@@ -120,8 +116,7 @@ class Restrito extends CI_Controller
 			"pagina" => "Minha Conta",
 			"logo" => base_url("assets/img/logo.jpg"),
 			"menu" => "person",
-			"usuario" => $usuario,
-			"minhaConta" => $minhaConta,
+			"usuario" => $this->usuario,
 			"scripts" => array(
 				"plugins/sweetalert2.js",
 				"util.js",
@@ -131,5 +126,4 @@ class Restrito extends CI_Controller
 
 		$this->template->show("admin/minha_conta_view.php", $data);
 	}
-
 }

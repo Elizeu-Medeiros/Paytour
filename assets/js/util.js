@@ -63,7 +63,7 @@ function uploadImg(input_file, img, input_path, id) {
 	form_data.append("id", id);
 	$("#btn_upload_usuario_photo").prop('disabled', true);
 	$.ajax({
-		url: BASE_URL + "fotos/do_upload",
+		url: BASE_URL + "Curriculum/ajax_enviar_doc",
 		dataType: "json",
         enctype: 'multipart/form-data',
         processData: false,  // Important!

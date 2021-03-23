@@ -105,7 +105,6 @@ $(document).ready(function () {
 
 	//enviar dados do form
 	$("#form_user").submit(function () {
-		ValidaCPF();
 		
 		$.ajax({
 			type: "POST",

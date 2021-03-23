@@ -332,6 +332,17 @@ class Usuarios_model extends CI_Model
     return $this->db->affected_rows();
   }
 
+  public function updateTelefoneEmail($dados)
+  {
+    $this->db->set('usu_telefone', $dados['telefone'])
+      ->set('usu_email', $dados['email'])
+      ->set('usu_data_atualizacao', date('Y-m-d H:i:s'))
+      ->where('pk_usuario', $dados['pk_usuario'])
+      ->update('usuarios');
+
+    return $this->db->affected_rows();
+  }
+
   public function deleteUsuario($idlogin)
   {
     $this->db->where('pk_usuario', $idlogin)
